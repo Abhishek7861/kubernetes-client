@@ -1,0 +1,32 @@
+import random
+import logging
+import argparse
+import time
+import requests
+
+logging.basicConfig(level=logging.INFO)
+
+
+def modelTraining():
+    time.sleep(10)
+
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser("Shuffler")
+    parser.add_argument("input_string", help="Input String", type=str)
+
+    args = parser.parse_args()
+
+    modelTraining()
+    endpoint = "http://host.minikube.internal:6000/job/trained"
+    data = {"ip": "1.1.2.3"}
+    headers={
+    'Content-type':'application/json', 
+    'Accept':'application/json',
+    "Authorization": "Bearer eyJhbGciOiJSUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ0U09MUkR6a21JWERRUVZ4WU1kN2ZFa2Q1Y1BvS3l6dXdmQ1U1NUFuVVhBIn0.eyJleHAiOjE2NTE4NzUyNDEsImlhdCI6MTY1MTgzOTI0MSwianRpIjoiNmM5MDg0YzQtY2EwNi00YTE0LTkxZjAtZmQ2OWUwZTMyM2M4IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay5hd3MtZXhwZXJpbWVudC1jb3JlLXYxLm1hdnEuaW8vYXV0aC9yZWFsbXMvYXdzLXRlc3QtMDAwMCIsInN1YiI6ImQwNzEwZDE4LTNjMjctNDk2ZS1hNWQxLTdmNmUzMjVkMzU2YiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImxvZ2luIiwic2Vzc2lvbl9zdGF0ZSI6IjE4MDgzNTRkLTRmZmUtNGI5Ny05NjQ2LThmODhiMzZmMmVkNiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2FkbWluOS5sb2NhbGhvc3Q6NDIwMCIsImh0dHA6Ly9hZG1pbjQubG9jYWxob3N0OjQyMDAiLCJodHRwOi8vYWRtaW41LmxvY2FsaG9zdDo0MjAwIiwiaHR0cDovL2FkbWluMy5sb2NhbGhvc3Q6NDIwMCIsImh0dHA6Ly9hZG1pbjEubG9jYWxob3N0OjQyMDAiLCIqIiwiaHR0cDovL2FkbWluNy5sb2NhbGhvc3Q6NDIwMCIsImh0dHA6Ly9hZG1pbi5sb2NhbGhvc3Q6NDIwMCIsImh0dHA6Ly9hZG1pbjYubG9jYWxob3N0OjQyMDAiLCJodHRwOi8vYWRtaW44LmxvY2FsaG9zdDo0MjAwIl0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjE4MDgzNTRkLTRmZmUtNGI5Ny05NjQ2LThmODhiMzZmMmVkNiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6InNoaXZhbSBzaW5naCIsInByZWZlcnJlZF91c2VybmFtZSI6Im1hdnE6Y29yZTovL3RlbmFudHMvaWRwLWF3cy1kZXYvdXNlcnMvc2hpdmFtLXNpbmdoIiwiZ2l2ZW5fbmFtZSI6InNoaXZhbSIsImZhbWlseV9uYW1lIjoic2luZ2giLCJlbWFpbCI6InNoaXZhbS5zaW5naEBtYXZxLmNvbSJ9.daYtVy1GTitSIVvj2fEYvnHcGT7sVh8nQvByHrbEay-nm9UBY0ap-EPdsPrL7_pU1ZpScVz223tLCf2M18FubLbNMRqwhQ_TLEYm5bIgNfpRWNzSvHZzgS7geJ7F6wbP59BBvAHTqYunSA4xjGETqEorQmei402zFMAV8UFYUECf4sxyAwMc8QzuMv3_XmpyMwkTIKk-F0MBJkuMJbzYeyffwzQyDxnmH6qnaNfXGRYyzDlR-3xVIvPAYcRIJS0k5ffzsOZPuQ5hl5W16yfO6t2g53U1AiPE4nTgJX9xCF2cnf_wxSAO_AtzZRmkr8zDgRUq29cqUNs0r0JvV7GnaA"
+    }
+
+    respone = requests.post(endpoint, data=data, headers=headers)
+    print(respone.content)
