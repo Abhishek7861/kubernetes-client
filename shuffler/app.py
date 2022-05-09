@@ -10,11 +10,10 @@ app = Flask(__name__)
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.
-@app.route('/')
-# ‘/’ URL is bound with hello_world() function.
+@app.route('/start-job', methods=['POST'])
 def hello_world():
     taskExecutor.triggerJob("Hello World")
-    return 'Hello World'
+    return 'Job scheduled with id: dummy'
 
 # main driver function
 if __name__ == '__main__':
