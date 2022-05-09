@@ -75,11 +75,11 @@ class Kubernetes:
         return job
 
 
-if __name__ == "__main__":
+def triggerJob(args):
 
-    parser = argparse.ArgumentParser("Task Executor")
-    parser.add_argument("input_string", help="Input String", type=str)
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser("Task Executor")
+    # parser.add_argument("input_string", help="Input String", type=str)
+    # args = parser.parse_args()
 
     job_id = uuid.uuid4()
     pod_id = job_id
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     _name = "shuffler"
     _pull_policy = "Never"
 
-    shuffler_container = k8s.create_container(_image, _name, _pull_policy, args.input_string)
+    shuffler_container = k8s.create_container(_image, _name, _pull_policy, args)
 
     # STEP2: CREATE A POD TEMPLATE SPEC
     _pod_name = f"my-job-pod-{pod_id}"
