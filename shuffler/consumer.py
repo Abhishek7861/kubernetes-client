@@ -54,6 +54,9 @@ r = redis.StrictRedis('localhost', 6379)
 
 MaxCounter = 10
 
+r.set("my-count","0")
+r.set("scheduled","0")
+
 while True:
     print("Job Running")
     time.sleep(0.1)
